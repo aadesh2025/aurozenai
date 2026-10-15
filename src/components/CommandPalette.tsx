@@ -41,7 +41,7 @@ export function CommandPalette() {
     return () => { window.removeEventListener("keydown", key); window.removeEventListener("aurozen:palette", ev); };
   }, []);
   useEffect(() => { if (open) { setQ(""); setIdx(0); setTimeout(() => input.current?.focus(), 20); } }, [open]);
-  useEffect(() => setIdx(0), [q]);
+  useEffect(() => { setIdx(0); }, [q]);
 
   const go = (h: string) => { setOpen(false); router.push(h); };
   if (!open) return null;

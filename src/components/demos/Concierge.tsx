@@ -23,7 +23,7 @@ export function Concierge() {
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const end = useRef<HTMLDivElement>(null);
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth" }), [msgs, busy, open]);
+  useEffect(() => { end.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs, busy, open]);
 
   async function send(q: string) {
     if (!q.trim() || busy) return;
