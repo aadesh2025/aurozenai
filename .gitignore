@@ -43,3 +43,9 @@ next-env.d.ts
 # lead storage
 /leads/
 .env*.local
+
+.vercel
+.env*
+
+# design references
+/image/

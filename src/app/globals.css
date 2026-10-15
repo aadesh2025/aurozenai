@@ -48,6 +48,7 @@
 }
 
 html {
+  font-size: 106.25%;
   scroll-behavior: smooth;
   background: var(--paper);
 }
@@ -62,6 +63,7 @@ body {
   color: var(--ink);
 }
 
+@layer base {
 h1,
 h2,
 .display {
@@ -73,6 +75,7 @@ h3,
 h4 {
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   letter-spacing: -0.02em;
+}
 }
 
 ::selection {

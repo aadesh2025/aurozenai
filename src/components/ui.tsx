@@ -5,7 +5,7 @@ import { SERVICES } from "@/lib/services";
 import { SpotLink } from "./Spot";
 
 export const Container = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
-  <div className={`mx-auto w-full max-w-6xl px-5 ${className}`}>{children}</div>
+  <div className={`mx-auto w-full max-w-7xl px-6 ${className}`}>{children}</div>
 );
 
 export function Crumbs({ trail }: { trail: [string, string?][] }) {
@@ -33,14 +33,14 @@ export const Pill = ({ children }: { children: ReactNode }) => (
 
 export function Hero({ title, text, trail, children, aside, dark = false }: { title: string; text?: string; trail?: [string, string?][]; children?: ReactNode; aside?: ReactNode; dark?: boolean }) {
   return (
-    <section className={`relative isolate overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 ${dark ? "theme-dark" : ""}`}>
+    <section className={`relative isolate overflow-hidden pt-28 pb-10 md:pt-36 md:pb-14 ${dark ? "theme-dark" : ""}`}>
       <div aria-hidden className="grid-bg absolute inset-0 -z-10" />
       <Container>
         {trail && <Crumbs trail={trail} />}
-        <div className={`mt-8 grid gap-12 ${aside ? "lg:grid-cols-[1.1fr_1fr] lg:items-center" : ""}`}>
+        <div className={`mt-6 grid gap-10 ${aside ? "lg:grid-cols-[1.1fr_1fr] lg:items-center" : ""}`}>
           <div className="reveal">
             <h1 className="max-w-3xl text-balance text-[2.9rem] leading-[1] text-ink sm:text-6xl md:text-7xl">{title}</h1>
-            {text && <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted">{text}</p>}
+            {text && <p className="mt-6 max-w-2xl text-pretty text-xl leading-relaxed text-muted">{text}</p>}
             {children && <div className="mt-9 flex flex-wrap items-center gap-3">{children}</div>}
           </div>
           {aside}
@@ -66,11 +66,11 @@ export const Btn = ({ href, children, ghost = false }: { href: string; children:
 // dark => a rounded "stage" panel inset from the page edge. Light sections sit on the page itself.
 export const Section = ({ title, lede, children, dark = false, id }: { title?: string; lede?: string; children: ReactNode; dark?: boolean; id?: string }) => {
   const inner = (
-    <Container className={dark ? "py-16 md:py-24" : "py-14 md:py-20"}>
+    <Container className={dark ? "py-12 md:py-16" : "py-10 md:py-14"}>
       {title && (
-        <div className="mb-10 grid gap-4 md:mb-14 md:grid-cols-2 md:items-end">
+        <div className="mb-8 grid gap-3 md:mb-10 md:grid-cols-2 md:items-end">
           <h2 className="text-balance text-4xl leading-[1.05] text-ink md:text-5xl">{title}</h2>
-          {lede && <p className="max-w-md text-pretty text-muted md:justify-self-end">{lede}</p>}
+          {lede && <p className="max-w-lg text-pretty text-[17px] text-muted md:justify-self-end">{lede}</p>}
         </div>
       )}
       {children}
@@ -89,7 +89,7 @@ export const Section = ({ title, lede, children, dark = false, id }: { title?: s
 export const Bullets = ({ items, single = false }: { items: string[]; dark?: boolean; single?: boolean }) => (
   <ul className={`grid border-t border-line ${single ? "" : "md:grid-cols-2 md:gap-x-12"}`}>
     {items.map((i) => (
-      <li key={i} className="flex items-start gap-3 border-b border-line py-4 text-[15px] text-ink/85">
+      <li key={i} className="flex items-start gap-3 border-b border-line py-4 text-[16.5px] text-ink/85">
         <svg width="16" height="16" viewBox="0 0 16 16" className="mt-1 shrink-0 text-accent" aria-hidden><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {i}
       </li>
@@ -100,7 +100,7 @@ export const Bullets = ({ items, single = false }: { items: string[]; dark?: boo
 export const Card = ({ href, title, text, className = "" }: { href: string; title: string; text?: string; className?: string }) => (
   <SpotLink href={href} className={`group flex flex-col p-6 ${className}`}>
     <h3 className="text-lg font-medium text-ink">{title}</h3>
-    {text && <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>}
+    {text && <p className="mt-2 text-[15.5px] leading-relaxed text-muted">{text}</p>}
     <span className="mt-auto pt-6 text-sm text-muted transition-colors group-hover:text-accent">Learn more →</span>
   </SpotLink>
 );
@@ -133,10 +133,10 @@ export function Related({ slugs }: { slugs: string[] }) {
 
 export function FinalCta({ title = "Have a business problem worth solving?", label = "Start a conversation", href = "/start-project" }: { title?: string; label?: string; href?: string }) {
   return (
-    <section className="px-2 pb-3 pt-6 md:px-4">
+    <section className="px-2 pb-3 pt-2 md:px-4">
       <div className="theme-dark noise relative overflow-hidden rounded-[32px] md:rounded-[44px]">
         <div aria-hidden className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-violet/30 blur-[110px]" />
-        <Container className="relative py-20 md:py-28">
+        <Container className="relative py-14 md:py-20">
           <h2 className="max-w-3xl text-balance text-5xl leading-[1] text-ink md:text-7xl">{title}</h2>
           <p className="mt-6 max-w-md text-muted">Explain your requirements and we will discuss a suitable approach.</p>
           <div className="mt-9 flex flex-wrap gap-3">

@@ -24,7 +24,7 @@ export function ScrollStory() {
   }, []);
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <ol className="space-y-6 lg:space-y-24 lg:py-16">
+      <ol className="space-y-6 lg:space-y-8 lg:py-4">
         {STAGES.map((s, i) => (
           <li key={s.t} data-i={i} ref={(el) => { refs.current[i] = el; }} className={`rounded-xl border p-5 transition-colors ${active === i ? "border-violet bg-ink/5" : "border-ink/10"}`}>
             <span className="font-mono text-xs text-accent">0{i + 1}</span>

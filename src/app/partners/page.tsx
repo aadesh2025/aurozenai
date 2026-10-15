@@ -85,7 +85,7 @@ export default function Page() {
 
       <section className="px-2 pb-3 md:px-4">
         <div className="theme-dark noise relative overflow-hidden rounded-[32px] md:rounded-[44px]">
-          <div className="mx-auto max-w-6xl px-5 py-20 text-center md:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-20 text-center md:py-28">
             <h2 className="mx-auto max-w-2xl text-5xl leading-none md:text-7xl">Ready to contribute?</h2>
             <p className="mx-auto mt-5 max-w-md text-muted">Tell us what you can do. We will tell you honestly whether and how it could work.</p>
             <div className="mt-9 flex justify-center gap-3"><Btn href="/partners/apply">Apply to collaborate</Btn><Link href="#roles" className="inline-flex items-center rounded-full border border-ink/20 px-6 py-3 text-sm">Browse roles</Link></div>

@@ -70,7 +70,7 @@ export function CommandPalette() {
               </button>
             </li>
           ))}
-          {!results.length && <li className="px-3 py-6 text-center text-sm text-muted">No match. Try the assistant at the bottom right.</li>}
+          {!results.length && <li className="px-3 py-6 text-center text-sm text-muted">No match. Try a different word, or use the contact page.</li>}
         </ul>
       </div>
     </div>

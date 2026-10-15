@@ -2,12 +2,12 @@
 
 export const SITE = {
   name: "AUROZEN AI",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurozen.ai", // TODO confirm domain
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurozenai.vercel.app",
   description:
     "AUROZEN AI helps businesses identify opportunities for AI, automate complex workflows, build intelligent business systems, and integrate AI into existing operations.",
   email: "aurozenai@gmail.com",
   // TODO: confirm product name + public URLs for the SaaS
-  product: { name: "VICERO", appUrl: "https://vicero-ai.vercel.app/" },
+  product: { name: "VICERO", appUrl: "https://vicero-ai.vercel.app/" as string | null },
   calendarUrl: null as string | null, // TODO: Cal.com / Calendly embed URL
   clientPortalUrl: null as string | null, // TODO
 };

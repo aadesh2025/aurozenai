@@ -75,7 +75,7 @@ export default async function RolePage({ params }: P) {
 
       <section className="px-2 pb-3 pt-6 md:px-4">
         <div className="theme-dark noise rounded-[32px] md:rounded-[44px]">
-          <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
             <h2 className="max-w-2xl text-4xl leading-none md:text-6xl">{open ? `Interested in ${r.title}?` : "Interested down the line?"}</h2>
             <div className="mt-8"><Btn href={`/partners/apply?role=${r.slug}`}>{cta}</Btn></div>
           </div>

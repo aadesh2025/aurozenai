@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Btn, Container, FinalCta, Section, Pill } from "@/components/ui";
 import { SystemsExplorer } from "@/components/demos/SystemsExplorer";
@@ -46,7 +47,7 @@ export default function Home() {
             <div className="flex flex-col gap-3 lg:pt-2">
               <Btn href="/start-project">Start a project</Btn>
               <Btn href="/assessment" ghost>Take the readiness assessment</Btn>
-              <p className="mt-2 text-sm text-muted">Or press <kbd className="rounded bg-ink/10 px-1.5 py-0.5 font-mono text-xs">Ctrl K</kbd> to search the whole site, or ask the assistant in the corner.</p>
+              <p className="mt-2 text-sm text-muted">Or press <kbd className="rounded bg-ink/10 px-1.5 py-0.5 font-mono text-xs">Ctrl K</kbd> to search the whole site.</p>
             </div>
           </div>
         </Container>
@@ -102,13 +103,9 @@ export default function Home() {
                 {SITE.product.appUrl && <Btn href={SITE.product.appUrl} ghost>Open the app</Btn>}
               </div>
             </div>
-            <div className="theme-dark self-center rounded-3xl p-6">
-              <div className="flex items-center gap-1.5" aria-hidden><span className="h-2.5 w-2.5 rounded-full bg-ink/20" /><span className="h-2.5 w-2.5 rounded-full bg-ink/20" /><span className="h-2.5 w-2.5 rounded-full bg-ink/20" /></div>
-              <div className="mt-5 space-y-3 text-sm">
-                <p className="w-fit max-w-[80%] rounded-2xl bg-ink/10 px-4 py-2.5">What are your opening hours?</p>
-                <p className="ml-auto w-fit max-w-[80%] rounded-2xl bg-accent/20 px-4 py-2.5">We are open Monday to Friday, 9am to 6pm. <span className="text-accent">[Source: Hours FAQ]</span></p>
-              </div>
-              <p className="mt-5 text-xs text-ink/40">Illustration, not a screenshot.</p>
+            <div className="self-center">
+              <Image src="/vicero/dark/inbox.png" alt="The VICERO inbox: a customer asks about delivery, the agent answers, and a person takes over" width={2160} height={1350} sizes="(min-width:1024px) 520px, 100vw" className="h-auto w-full rounded-2xl border border-line" />
+              <p className="mt-2 text-xs text-muted">Real app, invented demo data.</p>
             </div>
           </div>
         </Container>
@@ -116,7 +113,7 @@ export default function Home() {
 
       <Section title="Questions, answered">
         <div className="grid gap-10 md:grid-cols-[1fr_1.6fr]">
-          <p className="max-w-xs text-muted">More in the <Link href="/resources/faq" className="text-accent underline underline-offset-4">full FAQ</Link>, or ask the assistant.</p>
+          <p className="max-w-xs text-muted">More in the <Link href="/resources/faq" className="text-accent underline underline-offset-4">full FAQ</Link>.</p>
           <FaqList items={FAQ} />
         </div>
       </Section>
