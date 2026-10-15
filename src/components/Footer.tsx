@@ -6,8 +6,10 @@ const COLS: { title: string; links: [string, string][] }[] = [
   { title: "Pages", links: [["Home", "/"], ["About", "/company/about"], ["Our Work", "/work"], ["Insights", "/insights"], ["Partner With Us", "/partners"], ["Contact", "/contact"]] },
   { title: "Services", links: [["AI Consulting", "/services/ai-consulting"], ["AI Auditing", "/services/ai-audit"], ["AI Automation", "/services/ai-automation"], ["AI Agents", "/services/ai-agents"], ["AI Chatbots", "/services/ai-chatbots"], ["Voice Agents", "/services/ai-voice-agents"]] },
   { title: "Company", links: [["Our Approach", "/company/approach"], ["How We Work", "/company/how-we-work"], ["VICERO", "/products/vicero"], ["Client Support", "/support"], ["Book a Consultation", "/book-consultation"]] },
-  { title: "Legal", links: [["Privacy Policy", "/legal/privacy"], ["Terms of Use", "/legal/terms-of-use"], ["Cookie Policy", "/legal/cookies"], ["AI Disclaimer", "/legal/ai-disclaimer"], ["Data Rights", "/legal/data-rights"], ["Accessibility", "/legal/accessibility"]] },
+  { title: "Industries", links: [["Professional Services", "/industries/professional-services"], ["Healthcare & Clinics", "/industries/healthcare"], ["E-commerce & Retail", "/industries/ecommerce"], ["Real Estate", "/industries/real-estate"], ["Small Businesses", "/industries/smbs"]] },
 ];
+
+const LEGAL: [string, string][] = [["Privacy Policy", "/legal/privacy"], ["Terms of Use", "/legal/terms-of-use"], ["Cookie Policy", "/legal/cookies"], ["AI Disclaimer", "/legal/ai-disclaimer"], ["Data Rights", "/legal/data-rights"], ["Legal Notices", "/legal/contact"], ["Accessibility", "/legal/accessibility"], ["Legal Centre", "/legal"], ["Sitemap", "/sitemap"]];
 
 export function Footer() {
   return (
@@ -35,14 +37,19 @@ export function Footer() {
       </div>
 
       <div className="mx-auto mt-14 max-w-7xl px-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line py-5 text-sm text-ink/45">
-          <span>© {SITE.name}. All rights reserved.</span>
-          <span className="flex items-center gap-2 font-mono text-[13px]"><span className="h-2 w-2 rounded-full bg-violet" />Systems answering, right now</span>
+        <div className="border-t border-line py-6">
+          <ul className="flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
+            {LEGAL.map(([l, h]) => (<li key={h}><Link href={h} className="text-ink/65 transition-colors hover:text-ink">{l}</Link></li>))}
+          </ul>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-ink/45">
+            <span>© {SITE.name}. All rights reserved.</span>
+            <span className="flex items-center gap-2 font-mono text-[13px]"><span className="h-2 w-2 rounded-full bg-violet" />Systems answering, right now</span>
+          </div>
         </div>
       </div>
 
-      <div aria-hidden className="h-[min(11.5vw,13.5rem)] select-none overflow-hidden px-1 text-center">
-        <span className="block bg-gradient-to-b from-ink/40 to-ink/[0.08] bg-clip-text font-sans text-[clamp(3.5rem,17.6vw,17rem)] font-bold leading-[0.84] tracking-[-0.05em] text-transparent">
+      <div aria-hidden className="select-none overflow-hidden px-1 pb-3 pt-2 text-center">
+        <span className="block bg-gradient-to-b from-ink/45 to-ink/[0.12] bg-clip-text font-sans text-[clamp(3.5rem,16.5vw,16rem)] font-bold leading-[1] tracking-[-0.05em] text-transparent">
           AUROZENAI
         </span>
       </div>

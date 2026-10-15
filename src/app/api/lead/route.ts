@@ -8,6 +8,7 @@ import path from "node:path";
 // The local file is always written in non-serverless setups so a lead is never lost.
 const MAX = 4000;
 const rateMap = new Map<string, number[]>();
+const oneLine = (s: string) => s.replace(/\s+/g, " ").trim();
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
 export async function POST(req: Request) {
@@ -55,6 +56,23 @@ export async function POST(req: Request) {
       delivered = true;
     } catch (e) {
       console.error("[lead] gmail failed", e instanceof Error ? e.message : e);
+    }
+  }
+
+  // No app password needed: Web3Forms (WEB3FORMS_KEY) or, by default, FormSubmit to the business inbox.
+  if (!delivered) {
+    const subject = `[AUROZEN AI] New ${form} inquiry${fields.name ? ` from ${oneLine(fields.name)}` : ""}`;
+    const body = JSON.stringify({ ...fields, _subject: subject, _template: "table", _captcha: "false" });
+    try {
+      const key = process.env.WEB3FORMS_KEY;
+      const r = key
+        ? await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "content-type": "application/json", accept: "application/json" }, body: JSON.stringify({ access_key: key, subject, from_name: "AUROZEN AI Website", replyto: fields.email, ...fields }) })
+        : await fetch(`https://formsubmit.co/ajax/${user}`, { method: "POST", headers: { "content-type": "application/json", accept: "application/json", origin: process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurozenai.vercel.app", referer: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://aurozenai.vercel.app") + "/" }, body });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && (j.success === true || j.success === "true")) delivered = true;
+      else console.error("[lead] relay failed", r.status, JSON.stringify(j).slice(0, 200));
+    } catch (e) {
+      console.error("[lead] relay error", e instanceof Error ? e.message : e);
     }
   }
 
