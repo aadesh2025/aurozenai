@@ -13,7 +13,7 @@ export default function Page() {
         <div className="space-y-8">
           {FAQ_GROUPS.map((g) => (
             <div key={g.group}>
-              <h2 className="font-display text-xl font-semibold capitalize">{g.group}</h2>
+              <h2 className="font-ui text-xl font-medium capitalize">{g.group}</h2>
               {g.items.map((i) => (
                 <details key={i.q} className="mt-3 rounded-lg border border-line bg-surface-2 p-4">
                   <summary className="cursor-pointer font-medium">{i.q}</summary>

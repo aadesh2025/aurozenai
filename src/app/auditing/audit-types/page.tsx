@@ -21,7 +21,7 @@ export default function AuditTypes() {
         <div className="grid gap-5 lg:grid-cols-3">
           {AUDITS.map((a) => (
             <div key={a.n} className="card bg-surface-2 p-6 text-sm">
-              <h2 className="font-display text-xl font-semibold">{a.n}</h2>
+              <h2 className="font-ui text-xl font-medium">{a.n}</h2>
               <dl className="mt-4 space-y-3">
                 {([["Who it is for", a.who], ["Information required", a.needs], ["What is examined", a.examines], ["What you receive", a.gets], ["Outside scope", a.out]] as const).map(([k, v]) => (
                   <div key={k}><dt className="font-medium">{k}</dt><dd className="text-muted">{v}</dd></div>

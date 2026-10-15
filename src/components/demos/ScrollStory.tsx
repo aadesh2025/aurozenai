@@ -28,7 +28,7 @@ export function ScrollStory() {
         {STAGES.map((s, i) => (
           <li key={s.t} data-i={i} ref={(el) => { refs.current[i] = el; }} className={`rounded-xl border p-5 transition-colors ${active === i ? "border-violet bg-ink/5" : "border-ink/10"}`}>
             <span className="font-mono text-xs text-accent">0{i + 1}</span>
-            <h3 className="font-display text-xl font-semibold">{s.t}</h3>
+            <h3 className="font-ui text-xl font-medium">{s.t}</h3>
             <p className="mt-1 text-sm text-ink/70">{s.d}</p>
           </li>
         ))}

@@ -97,7 +97,7 @@ export function IntegrationDirectory() {
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {groups.flatMap((g) => g.items.map((i) => (
           <div key={g.category + i.name} className="card bg-surface-2 p-5 text-sm">
-            <div className="flex items-start justify-between gap-2"><h3 className="font-display font-semibold">{i.name}</h3><span className={`rounded-full px-2 py-0.5 text-xs ${STATUS_STYLE[i.status]}`}>{i.status}</span></div>
+            <div className="flex items-start justify-between gap-2"><h3 className="font-ui font-medium">{i.name}</h3><span className={`rounded-full px-2 py-0.5 text-xs ${STATUS_STYLE[i.status]}`}>{i.status}</span></div>
             <p className="mt-1 font-mono text-xs text-muted">{g.category}</p>
             <p className="mt-2 text-muted"><b className="text-ink">Use:</b> {i.use}</p>
             <p className="text-muted"><b className="text-ink">Needs:</b> {i.needs}</p>
@@ -121,7 +121,7 @@ export function ArticleSearch({ items }: { items: { slug: string; title: string;
         {list.map((a) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="card bg-surface-2 p-6 hover:border-violet">
             <span className="font-mono text-xs text-accent">{a.category}</span>
-            <h3 className="mt-1 font-display text-lg font-semibold">{a.title}</h3>
+            <h3 className="mt-1 font-ui text-lg font-medium">{a.title}</h3>
             <p className="mt-2 text-sm text-muted">{a.intro}</p>
           </Link>
         ))}

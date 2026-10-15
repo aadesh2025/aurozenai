@@ -19,7 +19,7 @@ export default function Page() {
     <>
       <Hero title="Legal Centre" text="Documents covering this website. Product and client-project terms are provided separately." trail={[["Legal"]]} />
       <Section>
-        <div className="grid gap-4 md:grid-cols-2">{DOCS.map(([t, h, d]) => <Card key={h} href={h} title={t} text={d} />)}</div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{DOCS.map(([t, h, d]) => <Card key={h} href={h} title={t} text={d} />)}</div>
         <p className="mt-6 max-w-2xl text-sm text-muted">These pages are drafts pending legal review. They apply to the AUROZEN AI website only. VICERO and client engagements are covered by their own terms.</p>
       </Section>
     </>

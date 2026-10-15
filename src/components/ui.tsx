@@ -148,3 +148,27 @@ export function FinalCta({ title = "Have a business problem worth solving?", lab
     </section>
   );
 }
+
+// Form pages: content on the left, a helpful side panel on the right so the page never reads as half-empty.
+export function Split({ children, aside }: { children: ReactNode; aside: ReactNode }) {
+  return (
+    <Container className="grid gap-10 pb-16 pt-4 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">
+      <div className="min-w-0">{children}</div>
+      <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">{aside}</aside>
+    </Container>
+  );
+}
+
+export function Info({ title, points, foot }: { title: string; points: string[]; foot?: ReactNode }) {
+  return (
+    <div className="card p-7">
+      <h2 className="font-ui text-xl font-medium">{title}</h2>
+      <ol className="mt-4 space-y-3.5">
+        {points.map((p, i) => (
+          <li key={p} className="flex gap-3 text-[16px] text-ink/85"><span className="mt-0.5 font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>{p}</li>
+        ))}
+      </ol>
+      {foot && <div className="mt-5 border-t border-line pt-4 text-[15px] text-muted">{foot}</div>}
+    </div>
+  );
+}
