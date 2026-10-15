@@ -35,7 +35,7 @@ export function Legal({ title, intro, sections, todo }: { title: string; intro?:
           </div>
           <div className="mt-10 space-y-10">
             {sections.map(([h, p]) => (
-              <section key={h} id={slug(h)} className="scroll-mt-28">
+              <section key={h} id={slug(h)} className="scroll-pop scroll-mt-28">
                 <h2 className="text-3xl leading-tight md:text-4xl">{h}</h2>
                 <div className="mt-3 space-y-3 text-[17px] leading-[1.75] text-ink/85">{(Array.isArray(p) ? p : [p]).map((t) => <p key={t}>{t}</p>)}</div>
               </section>

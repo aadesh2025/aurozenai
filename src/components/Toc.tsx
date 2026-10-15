@@ -12,7 +12,7 @@ export function Toc({ items }: { items: { id: string; label: string }[] }) {
     return () => io.disconnect();
   }, [items]);
   return (
-    <nav aria-label="On this page" className="sticky top-28 hidden lg:block">
+    <nav aria-label="On this page" className="sticky top-28 hidden self-start lg:block">
       <p className="mb-4 text-sm text-muted">On this page</p>
       <ul className="space-y-1 border-l border-line">
         {items.map((i) => (

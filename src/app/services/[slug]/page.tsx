@@ -82,7 +82,7 @@ export default async function ServicePage({ params }: P) {
       <Container className="grid gap-12 pb-20 pt-6 lg:grid-cols-[200px_1fr] lg:gap-16">
         <Toc items={toc} />
         <div className="min-w-0 space-y-24">
-          <section>
+          <section className="scroll-pop">
             <H id="problems">Problems we solve</H>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {s.problems.map((p) => (
@@ -91,7 +91,7 @@ export default async function ServicePage({ params }: P) {
             </ul>
           </section>
 
-          <section>
+          <section className="scroll-pop">
             <H id="approach" sub="The work, in the order it happens.">How we approach it</H>
             <ol className="relative mt-8 space-y-6 border-l border-line pl-8">
               {s.approach.map((a) => (
@@ -108,7 +108,7 @@ export default async function ServicePage({ params }: P) {
           </section>
 
           {demo && (
-            <section className="-mx-5 md:mx-0">
+            <section className="scroll-pop -mx-5 md:mx-0">
               <div className="theme-dark noise overflow-hidden rounded-[28px] p-5 md:rounded-[36px] md:p-10">
                 <H id="demo" sub={demo[1]}>{demo[0]}</H>
                 <div className="mt-8">{demo[2]}</div>
@@ -116,7 +116,7 @@ export default async function ServicePage({ params }: P) {
             </section>
           )}
 
-          <section>
+          <section className="scroll-pop">
             <H id="deliver">What you receive</H>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <div className="card p-6">
@@ -131,7 +131,7 @@ export default async function ServicePage({ params }: P) {
             </div>
           </section>
 
-          <section>
+          <section className="scroll-pop">
             <H id="process" sub="The same eight phases on every project; the detail changes by service.">Delivery process</H>
             <ol className="mt-8 flex gap-3 overflow-x-auto pb-3">
               {PHASES.map((p, i) => (
@@ -140,7 +140,7 @@ export default async function ServicePage({ params }: P) {
             </ol>
           </section>
 
-          <section>
+          <section className="scroll-pop">
             <H id="faq">Questions</H>
             <div className="mt-6"><FaqList items={s.faqs} /></div>
             <p className="mt-6 text-sm text-muted">{price ? "Final scope and proposal depend on your requirements." : "Scope is determined after discovery. Request a tailored proposal."} <Link href="/resources/faq" className="text-accent underline underline-offset-4">More FAQs</Link></p>

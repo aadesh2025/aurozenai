@@ -27,7 +27,7 @@ export default function HowWeWork() {
         <Toc items={STAGES.map(([t]) => ({ id: slug(t), label: t }))} />
         <ol className="space-y-5">
           {STAGES.map(([t, what, how, out], i) => (
-            <li key={t} id={slug(t)} className="card scroll-mt-28 p-7 md:p-9">
+            <li key={t} id={slug(t)} className="card scroll-pop scroll-mt-28 p-7 md:p-9">
               <div className="flex items-baseline gap-4">
                 <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
                 <h2 className="text-3xl leading-tight md:text-4xl">{t}</h2>

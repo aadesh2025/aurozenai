@@ -41,7 +41,7 @@ export default async function Article({ params }: P) {
           </div>
           <div className="space-y-12">
             {a.body.map((b) => (
-              <section key={b.h} id={slugify(b.h)} className="scroll-mt-28">
+              <section key={b.h} id={slugify(b.h)} className="scroll-pop scroll-mt-28">
                 <h2 className="text-3xl leading-tight md:text-4xl">{b.h}</h2>
                 <div className="mt-4 space-y-4 text-[17px] leading-[1.75] text-ink/85">{b.p.map((p) => <p key={p}>{p}</p>)}</div>
               </section>
