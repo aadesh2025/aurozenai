@@ -13,7 +13,7 @@ const LEGAL: [string, string][] = [["Privacy Policy", "/legal/privacy"], ["Terms
 
 export function Footer() {
   return (
-    <footer className="theme-dark relative mt-8 overflow-hidden">
+    <footer className="relative mt-8 overflow-hidden border-t border-line">
       <div className="mx-auto max-w-7xl px-6 pt-20">
         <div className="grid gap-14 lg:grid-cols-[1fr_2fr]">
           <div>
@@ -49,7 +49,7 @@ export function Footer() {
       </div>
 
       <div aria-hidden className="select-none overflow-hidden px-1 pb-3 pt-2 text-center">
-        <span className="block bg-gradient-to-b from-ink/45 to-ink/[0.12] bg-clip-text font-sans text-[clamp(3.5rem,16.5vw,16rem)] font-bold leading-[1] tracking-[-0.05em] text-transparent">
+        <span className="block bg-gradient-to-b from-ink/30 to-ink/[0.06] bg-clip-text font-sans text-[clamp(3.5rem,16.5vw,16rem)] font-bold leading-[1] tracking-[-0.05em] text-transparent">
           AUROZENAI
         </span>
       </div>
