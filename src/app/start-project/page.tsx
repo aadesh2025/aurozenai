@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { StartProjectForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Start a Project" };
+export const metadata: Metadata = { alternates: { canonical: "/start-project" }, description: "Describe your AI or automation project in six short steps and get a tailored response from AUROZEN AI.", title: "Start a Project" };
 
 export default function Page() {
   return (

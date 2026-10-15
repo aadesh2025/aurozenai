@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -65,20 +66,24 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <button onClick={() => window.dispatchEvent(new Event("aurozen:palette"))} className="mr-1 flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-xs text-muted transition-colors hover:text-ink" aria-label="Search the site">
             Search <kbd className="rounded bg-ink/10 px-1.5 py-0.5 font-mono text-[10px]">Ctrl K</kbd>
           </button>
           <Link href="/book-consultation" className="rounded-full bg-ink px-4 py-2 text-[13px] font-medium text-paper transition hover:opacity-85">Book a consultation</Link>
         </div>
 
-        <button className="grid h-10 w-10 place-items-center rounded-full lg:hidden" aria-expanded={open} aria-label="Toggle menu" onClick={() => setOpen(!open)}>
+        <div className="flex items-center gap-1.5 lg:hidden">
+          <ThemeToggle />
+          <button className="grid h-10 w-10 place-items-center rounded-full lg:hidden" aria-expanded={open} aria-label="Toggle menu" onClick={() => setOpen(!open)}>
           <span className="relative block h-3 w-5">
             <span className={`absolute left-0 h-px w-5 bg-ink transition-all ${open ? "top-1.5 rotate-45" : "top-0"}`} />
             <span className={`absolute left-0 top-1.5 h-px w-5 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
             <span className={`absolute left-0 h-px w-5 bg-ink transition-all ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
           </span>
         </button>
+        </div>
       </div>
 
       {open && (

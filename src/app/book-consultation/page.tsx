@@ -3,7 +3,7 @@ import { ConsultForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Book a Consultation" };
+export const metadata: Metadata = { alternates: { canonical: "/book-consultation" }, description: "Book a free-form first conversation with AUROZEN AI about your process, your tools, and whether AI fits.", title: "Book a Consultation" };
 
 export default function Page() {
   return (

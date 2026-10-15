@@ -3,7 +3,7 @@ import { FinalCta, Hero, Section } from "@/components/ui";
 import { DeploymentExplorer } from "@/components/demos/DeploymentExplorer";
 import { FaqList } from "@/components/FaqList";
 
-export const metadata: Metadata = { title: "Our Approach" };
+export const metadata: Metadata = { alternates: { canonical: "/company/approach" }, description: "How AUROZEN AI evaluates a problem and chooses technology: feasibility, build versus buy, integration, evaluation, deployment.", title: "Our Approach" };
 
 const TOPICS = [
   { q: "Business-process analysis", a: "We map how the work happens today, who does it, how often, where it breaks, and what a good outcome looks like. The process is the unit of design, not the model." },

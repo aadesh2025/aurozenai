@@ -3,7 +3,7 @@ import { PRICING } from "@/lib/site";
 import { Btn, FinalCta, Hero, Section } from "@/components/ui";
 import { LevelPicker } from "@/components/demos/LevelPicker";
 
-export const metadata: Metadata = { title: "AI Consulting Levels" };
+export const metadata: Metadata = { alternates: { canonical: "/consulting/levels" }, description: "Three levels of AI consulting: discovery, strategy and architecture, and advanced systems. Compare scope and deliverables.", title: "AI Consulting Levels" };
 
 export default function Levels() {
   return (

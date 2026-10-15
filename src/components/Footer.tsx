@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { Logo } from "./Logo";
+import { FooterCols } from "./FooterCols";
 
 const COLS: { title: string; links: [string, string][] }[] = [
   { title: "Pages", links: [["Home", "/"], ["About", "/company/about"], ["Our Work", "/work"], ["Insights", "/insights"], ["Partner With Us", "/partners"], ["Contact", "/contact"]] },
@@ -14,29 +15,18 @@ const LEGAL: [string, string][] = [["Privacy Policy", "/legal/privacy"], ["Terms
 export function Footer() {
   return (
     <footer className="relative mt-8 overflow-hidden border-t border-line">
-      <div className="mx-auto max-w-7xl px-6 pt-20">
-        <div className="grid gap-14 lg:grid-cols-[1fr_2fr]">
+      <div className="mx-auto max-w-7xl px-6 pt-12 sm:pt-20">
+        <div className="grid gap-8 lg:grid-cols-[1fr_2fr] lg:gap-14">
           <div>
             <Logo size={36} />
             <p className="mt-6 max-w-xs text-base text-ink/55">Engineering intelligent systems for business growth.</p>
             <a href={`mailto:${SITE.email}`} className="mt-5 block text-base text-ink/80 transition-colors hover:text-ink">{SITE.email}</a>
                       </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-            {COLS.map((c) => (
-              <div key={c.title}>
-                <h2 className="font-ui text-base font-semibold text-ink">{c.title}</h2>
-                <ul className="mt-5 space-y-3.5">
-                  {c.links.map(([l, h]) => (
-                    <li key={h}><Link href={h} className="text-[15px] text-ink/70 transition-colors hover:text-ink">{l}</Link></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <FooterCols cols={COLS} />
         </div>
       </div>
 
-      <div className="mx-auto mt-14 max-w-7xl px-6">
+      <div className="mx-auto mt-10 max-w-7xl px-6 sm:mt-14">
         <div className="border-t border-line py-6">
           <ul className="flex flex-wrap gap-x-7 gap-y-3 text-[15px]">
             {LEGAL.map(([l, h]) => (<li key={h}><Link href={h} className="text-ink/65 transition-colors hover:text-ink">{l}</Link></li>))}

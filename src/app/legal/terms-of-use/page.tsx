@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 
-export const metadata: Metadata = { title: "Terms of Use" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/terms-of-use" }, description: "Terms of use for the AUROZEN AI website.", title: "Terms of Use" };
 
 export default function Page() {
   return (

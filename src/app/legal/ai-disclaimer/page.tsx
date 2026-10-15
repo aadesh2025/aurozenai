@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 
-export const metadata: Metadata = { title: "AI Use and Limitations" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/ai-disclaimer" }, description: "What AI-generated content and the interactive demonstrations on the AUROZEN AI website can and cannot do.", title: "AI Use and Limitations" };
 
 export default function Page() {
   return (

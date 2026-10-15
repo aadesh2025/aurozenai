@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { SERVICES, getService } from "@/lib/services";
-import { PRICING, PHASES } from "@/lib/site";
+import { PRICING, PHASES, SITE } from "@/lib/site";
 import { Btn, Container, FinalCta, Hero, Related } from "@/components/ui";
 import { Toc } from "@/components/Toc";
+import { JsonLd } from "@/components/JsonLd";
 import { FaqList } from "@/components/FaqList";
 import { AutomationBuilder } from "@/components/demos/AutomationBuilder";
 import { AgentDemo } from "@/components/demos/AgentDemo";
@@ -26,7 +27,7 @@ export const generateStaticParams = () => SERVICES.map((s) => ({ slug: s.slug })
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  return s ? { title: s.name, description: s.short } : {};
+  return s ? { title: s.name, description: s.short, alternates: { canonical: `/services/${s.slug}` }, openGraph: { title: s.name, description: s.short, url: `/services/${s.slug}` } } : {};
 }
 
 const H = ({ id, children, sub }: { id: string; children: React.ReactNode; sub?: string }) => (
@@ -50,8 +51,13 @@ export default async function ServicePage({ params }: P) {
     { id: "process", label: "Delivery process" },
     { id: "faq", label: "Questions" },
   ];
+  const ld = [
+    { "@context": "https://schema.org", "@type": "Service", name: s.name, description: s.short, serviceType: s.name, provider: { "@type": "Organization", name: "AUROZEN AI", url: SITE.url }, areaServed: ["US", "GB", "CA", "AU", "EU", "IN"], url: `${SITE.url}/services/${s.slug}` },
+    { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: s.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+  ];
   return (
     <>
+      <JsonLd data={ld} />
       <Hero
         title={s.name}
         text={s.intro}

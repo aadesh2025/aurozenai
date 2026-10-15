@@ -4,7 +4,7 @@ import { PROJECTS } from "@/lib/content";
 import { Hero, Section } from "@/components/ui";
 import { SpotLink } from "@/components/Spot";
 
-export const metadata: Metadata = { title: "Our Work" };
+export const metadata: Metadata = { alternates: { canonical: "/work" }, description: "Reference designs and prototypes from AUROZEN AI, each labeled by status and the data used.", title: "Our Work" };
 
 export default function Work() {
   return (

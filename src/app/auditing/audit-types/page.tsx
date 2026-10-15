@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PRICING } from "@/lib/site";
 import { Btn, FinalCta, Hero, Section } from "@/components/ui";
 
-export const metadata: Metadata = { title: "AI Audit Types" };
+export const metadata: Metadata = { alternates: { canonical: "/auditing/audit-types" }, title: "AI Audit Types" };
 
 const AUDITS = [
   { n: "AI Readiness Audit", who: "Businesses deciding whether to adopt AI.", needs: "Process descriptions, system list, data overview.", examines: "Processes, data, systems, organizational readiness.", gets: "Findings, risks, and initial priorities.", out: "Implementation and certification." },

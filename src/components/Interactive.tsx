@@ -88,10 +88,10 @@ export function IntegrationDirectory() {
   return (
     <div>
       <label htmlFor="isearch" className="mb-1 block text-sm font-medium">Search for your software</label>
-      <input id="isearch" value={s} onChange={(e) => setS(e.target.value)} placeholder="e.g. CRM, n8n, Docker" className="w-full max-w-md rounded-md border border-line bg-surface-2 px-3 py-2.5 text-sm" />
+      <input id="isearch" value={s} onChange={(e) => setS(e.target.value)} placeholder="e.g. CRM, n8n, Docker" className="w-full max-w-md rounded-md border border-line bg-surface-2 px-3.5 py-3 text-base sm:text-sm" />
       <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Category filter">
         {["All", ...INTEGRATIONS.map((g) => g.category)].map((c) => (
-          <button key={c} aria-pressed={cat === c} onClick={() => setCat(c)} className={`rounded-full border px-3 py-1 text-xs ${cat === c ? "border-violet bg-violet text-white" : "border-line bg-surface-2"}`}>{c}</button>
+          <button key={c} aria-pressed={cat === c} onClick={() => setCat(c)} className={`rounded-full border px-3.5 py-2 text-[13px] ${cat === c ? "border-violet bg-violet text-white" : "border-line bg-surface-2"}`}>{c}</button>
         ))}
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -116,7 +116,7 @@ export function ArticleSearch({ items }: { items: { slug: string; title: string;
   return (
     <div>
       <label htmlFor="asearch" className="sr-only">Search articles</label>
-      <input id="asearch" value={s} onChange={(e) => setS(e.target.value)} placeholder="Search articles" className="w-full max-w-md rounded-md border border-line bg-surface-2 px-3 py-2.5 text-sm" />
+      <input id="asearch" value={s} onChange={(e) => setS(e.target.value)} placeholder="Search articles" className="w-full max-w-md rounded-md border border-line bg-surface-2 px-3.5 py-3 text-base sm:text-sm" />
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {list.map((a) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="card bg-surface-2 p-6 hover:border-violet">

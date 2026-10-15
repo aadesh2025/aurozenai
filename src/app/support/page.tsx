@@ -4,7 +4,7 @@ import { SupportForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Client Support" };
+export const metadata: Metadata = { alternates: { canonical: "/support" }, description: "Support request form for existing AUROZEN AI clients.", title: "Client Support" };
 
 export default function Page() {
   return (

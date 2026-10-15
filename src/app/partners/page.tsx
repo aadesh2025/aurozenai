@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Btn, Hero, Section, Pill } from "@/components/ui";
+import { Btn, Hero, Section, Pill, Rail } from "@/components/ui";
 import { CompensationDisclosure, RoleBrowser, RoleCard, RoleMatcher, Schedules } from "@/components/partners/PartnerHub";
 import { FaqList } from "@/components/FaqList";
 import { ROLES } from "@/lib/partners";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { alternates: { canonical: "/partners" },
   title: "Partner With Us",
   description: "Join AUROZEN AI as a sales partner, business developer, or AI specialist. Flexible, performance-based collaboration with transparent terms.",
 };
@@ -56,7 +56,7 @@ export default function Page() {
       </Section>
 
       <Section title="Where we need people first">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{featured.map((r) => <RoleCard key={r.slug} r={r} />)}</div>
+        <Rail>{featured.map((r) => <RoleCard key={r.slug} r={r} />)}</Rail>
       </Section>
 
       <Section dark title="Opportunities that fit different schedules" lede="Whether you are studying, managing things at home, freelancing, or building your career. We ask about your real skills and availability, nothing else.">

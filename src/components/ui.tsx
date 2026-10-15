@@ -3,14 +3,22 @@ import { ReactNode } from "react";
 import { PHASES } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { SpotLink } from "./Spot";
+import { JsonLd } from "./JsonLd";
+import { SITE } from "@/lib/site";
 
 export const Container = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <div className={`mx-auto w-full max-w-7xl px-6 ${className}`}>{children}</div>
 );
 
 export function Crumbs({ trail }: { trail: [string, string?][] }) {
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [["Home", "/"] as [string, string?], ...trail].map(([name, href], i) => ({ "@type": "ListItem", position: i + 1, name, ...(href ? { item: SITE.url + href } : {}) })),
+  };
   return (
     <nav aria-label="Breadcrumb" className="text-[13px] text-ink/45">
+      <JsonLd data={ld} />
       <ol className="flex flex-wrap items-center gap-2">
         <li><Link href="/" className="hover:text-ink">Home</Link></li>
         {trail.map(([l, h], i) => (
@@ -39,9 +47,9 @@ export function Hero({ title, text, trail, children, aside, dark = false }: { ti
         {trail && <Crumbs trail={trail} />}
         <div className={`mt-6 grid gap-10 ${aside ? "lg:grid-cols-[1.1fr_1fr] lg:items-center" : ""}`}>
           <div className="reveal">
-            <h1 className="max-w-3xl text-balance text-[2.9rem] leading-[1] text-ink sm:text-6xl md:text-7xl">{title}</h1>
+            <h1 className="max-w-3xl text-balance text-[2.6rem] leading-[1.02] text-ink sm:text-6xl sm:leading-[1] md:text-7xl">{title}</h1>
             {text && <p className="mt-6 max-w-2xl text-pretty text-xl leading-relaxed text-muted">{text}</p>}
-            {children && <div className="mt-9 flex flex-wrap items-center gap-3">{children}</div>}
+            {children && <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">{children}</div>}
           </div>
           {aside}
         </div>
@@ -66,10 +74,10 @@ export const Btn = ({ href, children, ghost = false }: { href: string; children:
 // dark => a rounded "stage" panel inset from the page edge. Light sections sit on the page itself.
 export const Section = ({ title, lede, children, dark = false, id }: { title?: string; lede?: string; children: ReactNode; dark?: boolean; id?: string }) => {
   const inner = (
-    <Container className={dark ? "py-12 md:py-16" : "py-10 md:py-14"}>
+    <Container className={dark ? "py-10 md:py-16" : "py-9 md:py-14"}>
       {title && (
         <div className="mb-8 grid gap-3 md:mb-10 md:grid-cols-2 md:items-end">
-          <h2 className="text-balance text-4xl leading-[1.05] text-ink md:text-5xl">{title}</h2>
+          <h2 className="text-balance text-[2.1rem] leading-[1.08] text-ink sm:text-4xl md:text-5xl">{title}</h2>
           {lede && <p className="max-w-lg text-pretty text-[17px] text-muted md:justify-self-end">{lede}</p>}
         </div>
       )}
@@ -120,13 +128,20 @@ export function PhaseStrip({ dark = true }: { dark?: boolean }) {
   );
 }
 
+// Horizontal swipe rail on phones, a grid from tablet up.
+export function Rail({ children, cols = "md:grid-cols-2 lg:grid-cols-3" }: { children: ReactNode; cols?: string }) {
+  return (
+    <div className={`-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 [scrollbar-width:none] md:mx-0 md:grid md:gap-4 md:overflow-visible md:px-0 md:pb-0 ${cols} [&>*]:w-[84%] [&>*]:shrink-0 [&>*]:snap-start sm:[&>*]:w-[55%] md:[&>*]:w-auto`}>{children}</div>
+  );
+}
+
 export function Related({ slugs }: { slugs: string[] }) {
   const items = SERVICES.filter((s) => slugs.includes(s.slug));
   return (
     <Section title="Related capabilities">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <Rail>
         {items.map((s) => (<Card key={s.slug} href={`/services/${s.slug}`} title={s.name} text={s.short} />))}
-      </div>
+      </Rail>
     </Section>
   );
 }
@@ -136,10 +151,10 @@ export function FinalCta({ title = "Have a business problem worth solving?", lab
     <section className="px-2 pb-3 pt-2 md:px-4">
       <div className="theme-dark noise relative overflow-hidden rounded-[32px] md:rounded-[44px]">
         <div aria-hidden className="pointer-events-none absolute -right-20 -top-32 h-96 w-96 rounded-full bg-violet/30 blur-[110px]" />
-        <Container className="relative py-14 md:py-20">
-          <h2 className="max-w-3xl text-balance text-5xl leading-[1] text-ink md:text-7xl">{title}</h2>
+        <Container className="relative py-12 md:py-20">
+          <h2 className="max-w-3xl text-balance text-4xl leading-[1.04] text-ink sm:text-5xl md:text-7xl">{title}</h2>
           <p className="mt-6 max-w-md text-muted">Explain your requirements and we will discuss a suitable approach.</p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
             <Btn href={href}>{label}</Btn>
             <Btn href="/book-consultation" ghost>Book a consultation</Btn>
           </div>

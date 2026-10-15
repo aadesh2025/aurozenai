@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Data Protection and Privacy Rights" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/data-rights" }, description: "How to make a request about your personal information held by AUROZEN AI: access, correction, deletion, and more.", title: "Data Protection and Privacy Rights" };
 
 export default function Page() {
   return (

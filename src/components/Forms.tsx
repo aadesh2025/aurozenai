@@ -8,7 +8,7 @@ async function send(form: string, data: Record<string, string>) {
   if (!r.ok || !j.ok) throw new Error(j.error ?? "Something went wrong");
 }
 
-const input = "w-full rounded-md border border-line bg-surface-2 px-3 py-2.5 text-sm focus:border-violet";
+const input = "w-full rounded-md border border-line bg-surface-2 px-3.5 py-3 text-base sm:text-sm focus:border-violet";
 const label = "mb-1 block text-sm font-medium";
 
 function Field({ name, title, type = "text", required, area, options }: { name: string; title: string; type?: string; required?: boolean; area?: boolean; options?: string[] }) {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 
-export const metadata: Metadata = { title: "Cookie Policy" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/cookies" }, description: "Cookie policy for the AUROZEN AI website: what is stored on your device and how that may change.", title: "Cookie Policy" };
 
 export default function Page() {
   return (

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Btn, Container, FinalCta, Section, Pill } from "@/components/ui";
+import { SystemDiagram } from "@/components/SystemDiagram";
 import { SystemsExplorer } from "@/components/demos/SystemsExplorer";
 import { ScrollStory } from "@/components/demos/ScrollStory";
 import { ProblemMapper } from "@/components/demos/ProblemMapper";
@@ -33,21 +34,24 @@ export default function Home() {
         <div aria-hidden className="grid-bg absolute inset-0 -z-10" />
         <div aria-hidden className="absolute left-1/2 top-0 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-violet/15 blur-[120px]" />
         <Container>
-          <div className="reveal max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div className="reveal">
             <Pill>AI consultancy and implementation, built from India for the world</Pill>
-            <h1 className="mt-7 text-balance text-[3.1rem] leading-[0.98] text-ink sm:text-7xl lg:text-[6.25rem]">
+            <h1 className="mt-7 text-balance text-[2.7rem] leading-[1] text-ink sm:text-7xl lg:text-[5.4rem]">
               Intelligent systems for businesses that <em className="text-accent">actually</em> run.
             </h1>
             <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted">
               We find where AI is worth using, automate the workflows behind it, and wire it into the software you already own.
             </p>
           </div>
+            <div className="reveal hidden [animation-delay:150ms] sm:block"><SystemDiagram /></div>
+          </div>
           <div className="reveal mt-12 grid items-start gap-8 [animation-delay:150ms] lg:grid-cols-[1.2fr_1fr]">
             <ProblemMapper />
-            <div className="flex flex-col gap-3 lg:pt-2">
+            <div className="flex flex-col gap-3 lg:pt-2 [&>a]:justify-center">
               <Btn href="/start-project">Start a project</Btn>
               <Btn href="/assessment" ghost>Take the readiness assessment</Btn>
-              <p className="mt-2 text-sm text-muted">Or press <kbd className="rounded bg-ink/10 px-1.5 py-0.5 font-mono text-xs">Ctrl K</kbd> to search the whole site.</p>
+              <p className="mt-2 hidden text-sm text-muted md:block">Or press <kbd className="rounded bg-ink/10 px-1.5 py-0.5 font-mono text-xs">Ctrl K</kbd> to search the whole site.</p>
             </div>
           </div>
         </Container>

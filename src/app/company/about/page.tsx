@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Btn, FinalCta, Hero, Section } from "@/components/ui";
 import { CapabilityStatus } from "@/components/demos/CapabilityStatus";
 
-export const metadata: Metadata = { title: "About", description: "AUROZEN AI is an early-stage AI consultancy and implementation company, built from India for international clients." };
+export const metadata: Metadata = { alternates: { canonical: "/company/about" }, title: "About", description: "AUROZEN AI is an early-stage AI consultancy and implementation company, built from India for international clients." };
 
 const PRINCIPLES = [
   ["Business first, technology second", "We start from the process and the outcome. If AI is not the right tool, we say so."],

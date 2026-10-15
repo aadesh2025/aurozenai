@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 
-export const metadata: Metadata = { title: "Data Processing Information" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/data-processing" }, description: "General information on how client data is handled in AUROZEN AI projects.", title: "Data Processing Information" };
 
 export default function Page() {
   return (

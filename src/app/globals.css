@@ -1,33 +1,56 @@
 @import "tailwindcss";
 
-/* Two deliberate themes. Light is the page; .theme-dark marks a "stage" band. */
+/* Two premium themes (light and dark), switchable. One accent hue (violet); no rainbow.
+   .theme-dark marks a deliberate dark "stage" band inside the light theme. */
 :root {
-  --paper: #f4f4f7;
+  --paper: #f5f5f8;
   --surface: #ffffff;
-  --surface-2: #ebebf0;
-  --ink: #0b0b12;
-  --muted: #5a5a6a;
-  --line: rgba(11, 11, 18, 0.1);
+  --surface-2: #ececf2;
+  --ink: #0c0c14;
+  --muted: #5b5b6c;
+  --line: rgba(12, 12, 20, 0.1);
   --accent: #5b3df0;
-  --accent-2: #0e9fb3;
+  --accent-2: #7b5cff;
   --violet: #7b5cff;
-  --cyan: #4cd9e8;
+  --cyan: #a493ff;
   --logo-a: #20202c;
   --logo-b: #6b6b7c;
   --logo-c: #14141c;
+  color-scheme: light;
 }
 .theme-dark {
-  --paper: #09090e;
-  --surface: #12121a;
-  --surface-2: #1a1a24;
-  --ink: #f3f3f7;
-  --muted: #9b9bad;
+  --paper: #0a0a10;
+  --surface: #13131b;
+  --surface-2: #1b1b26;
+  --ink: #f3f3f8;
+  --muted: #a0a0b3;
   --line: rgba(255, 255, 255, 0.1);
-  --accent: #4cd9e8;
+  --accent: #a493ff;
   --accent-2: #8f78ff;
   --logo-a: #f6f6fb;
   --logo-b: #9a9aab;
   --logo-c: #e4e4ec;
+}
+/* Dark theme: the whole page is dark, bands become slightly raised panels */
+html[data-theme="dark"] {
+  --paper: #090910;
+  --surface: #12121a;
+  --surface-2: #1a1a25;
+  --ink: #f3f3f8;
+  --muted: #a0a0b3;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #a493ff;
+  --accent-2: #8f78ff;
+  --logo-a: #f6f6fb;
+  --logo-b: #9a9aab;
+  --logo-c: #e4e4ec;
+  color-scheme: dark;
+}
+html[data-theme="dark"] .theme-dark {
+  --paper: #11111a;
+  --surface: #181822;
+  --surface-2: #20202c;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
 }
 
 @theme inline {

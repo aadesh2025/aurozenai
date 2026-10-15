@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bullets, FinalCta, Hero, Section } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "SaaS and Custom Implementation" };
+export const metadata: Metadata = { alternates: { canonical: "/products/custom-implementation" }, description: "Use VICERO as provided or commission AUROZEN AI to configure, integrate, and extend it for your business.", title: "SaaS and Custom Implementation" };
 
 export default function Page() {
   return (

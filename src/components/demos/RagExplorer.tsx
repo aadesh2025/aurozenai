@@ -31,7 +31,7 @@ export function RagExplorer() {
         <div>
           <form onSubmit={(e) => { e.preventDefault(); setRan(q); }} className="flex gap-2">
             <label htmlFor="rq" className="sr-only">Question</label>
-            <input id="rq" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask about the sample documents" className="flex-1 rounded-md border border-line bg-surface-2 px-3 py-2 text-sm" />
+            <input id="rq" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask about the sample documents" className="flex-1 rounded-md border border-line bg-surface-2 px-3.5 py-3 text-base sm:text-sm" />
             <button className="rounded-md bg-violet px-4 py-2 text-sm text-white">Ask</button>
           </form>
           <div className="mt-2 flex flex-wrap gap-2">{SAMPLES.map((s) => <button key={s} onClick={() => { setQ(s); setRan(s); }} className="rounded-full border border-line px-3 py-1 text-xs">{s}</button>)}</div>

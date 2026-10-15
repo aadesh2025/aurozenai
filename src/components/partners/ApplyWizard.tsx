@@ -5,7 +5,7 @@ import { ROLES } from "@/lib/partners";
 
 type D = Record<string, string>;
 const STEPS = ["About you", "Opportunity", "Experience", "Availability", "Expectations", "Review"];
-const inp = "w-full rounded-2xl border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-accent";
+const inp = "w-full rounded-2xl border border-line bg-surface px-4 py-3.5 text-base outline-none focus:border-accent sm:text-sm";
 
 export function ApplyWizard() {
   const [step, setStep] = useState(0);

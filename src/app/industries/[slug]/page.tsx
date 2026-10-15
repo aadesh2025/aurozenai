@@ -14,7 +14,7 @@ export const generateStaticParams = () => INDUSTRIES.map((i) => ({ slug: i.slug 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { slug } = await params;
   const i = INDUSTRIES.find((x) => x.slug === slug);
-  return i ? { title: `AI for ${i.name}`, description: i.intro } : {};
+  return i ? { alternates: { canonical: `/industries/${i.slug}` }, title: `AI for ${i.name}`, description: i.intro } : {};
 }
 
 export default async function IndustryPage({ params }: P) {

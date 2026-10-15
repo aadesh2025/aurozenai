@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy Policy" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/privacy" }, description: "How AUROZEN AI collects, uses, shares, and protects personal information submitted through this website.", title: "Privacy Policy" };
 
 export default function Page() {
   return (

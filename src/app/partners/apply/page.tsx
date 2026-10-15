@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ApplyWizard } from "@/components/partners/ApplyWizard";
 import { Hero, Info, Split } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Apply to Collaborate", description: "Apply to collaborate with AUROZEN AI. No application fee." };
+export const metadata: Metadata = { alternates: { canonical: "/partners/apply" }, title: "Apply to Collaborate", description: "Apply to collaborate with AUROZEN AI. No application fee." };
 
 export default function Page() {
   return (

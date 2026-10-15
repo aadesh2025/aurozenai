@@ -29,7 +29,7 @@ export function ProblemMapper() {
       <form onSubmit={(e) => { e.preventDefault(); setRan(text); }}>
         <label htmlFor="pm" className="text-sm font-medium">What is slowing your business down?</label>
         <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-          <input id="pm" value={text} onChange={(e) => setText(e.target.value)} placeholder="e.g. we copy leads between tools by hand" className="flex-1 rounded-full border border-line bg-paper px-5 py-3 text-sm outline-none focus:border-accent" />
+          <input id="pm" value={text} onChange={(e) => setText(e.target.value)} placeholder="e.g. we copy leads between tools by hand" className="flex-1 rounded-full border border-line bg-paper px-5 py-3.5 text-base outline-none focus:border-accent sm:text-sm" />
           <button className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper">Find a fit</button>
         </div>
       </form>

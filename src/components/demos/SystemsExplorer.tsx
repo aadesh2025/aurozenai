@@ -19,9 +19,14 @@ export function SystemsExplorer() {
   const cur = NODES.find((n) => n.id === sel)!;
   return (
     <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-      <svg viewBox="0 0 760 320" className="w-full rounded-xl border border-ink/10 bg-paper" role="group" aria-label="Interactive system diagram. Select a component.">
+      <div className="flex flex-wrap gap-2 md:hidden" role="group" aria-label="System components">
         {NODES.map((n) => (
-          <line key={n.id} x1={CX} y1={CY} x2={n.x + 60} y2={n.y + 20} stroke={n.id === sel || cur.links.includes(n.id) ? "#4CD9E8" : "#ffffff22"} strokeWidth={n.id === sel ? 2 : 1.2} className={cur.links.includes(n.id) || n.id === sel ? "flow" : ""} />
+          <button key={n.id} aria-pressed={sel === n.id} onClick={() => setSel(n.id)} className={`rounded-full border px-4 py-2.5 text-[15px] ${sel === n.id ? "border-violet bg-violet text-white" : cur.links.includes(n.id) ? "border-accent/60 text-ink" : "border-ink/15 text-ink/80"}`}>{n.label}</button>
+        ))}
+      </div>
+      <svg viewBox="0 0 760 320" className="hidden w-full rounded-xl border border-ink/10 bg-paper md:block" role="group" aria-label="Interactive system diagram. Select a component.">
+        {NODES.map((n) => (
+          <line key={n.id} x1={CX} y1={CY} x2={n.x + 60} y2={n.y + 20} stroke={n.id === sel || cur.links.includes(n.id) ? "#A493FF" : "#ffffff22"} strokeWidth={n.id === sel ? 2 : 1.2} className={cur.links.includes(n.id) || n.id === sel ? "flow" : ""} />
         ))}
         <rect x={CX - 70} y={CY - 28} width="140" height="56" rx="10" fill="#1C1C22" stroke="#7B5CFF" strokeWidth="2" />
         <text x={CX} y={CY + 5} textAnchor="middle" fill="#fff" fontSize="13" fontWeight="600">Your business</text>
@@ -29,7 +34,7 @@ export function SystemsExplorer() {
           const on = n.id === sel, rel = cur.links.includes(n.id);
           return (
             <g key={n.id} role="button" tabIndex={0} aria-pressed={on} aria-label={n.label} onClick={() => setSel(n.id)} onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSel(n.id))} className="cursor-pointer outline-none [&:focus-visible>rect]:stroke-white">
-              <rect x={n.x} y={n.y} width="120" height="40" rx="8" fill={on ? "#7B5CFF" : "#14141a"} stroke={rel ? "#4CD9E8" : "#ffffff33"} strokeWidth={rel ? 2 : 1} />
+              <rect x={n.x} y={n.y} width="120" height="40" rx="8" fill={on ? "#7B5CFF" : "#14141a"} stroke={rel ? "#A493FF" : "#ffffff33"} strokeWidth={rel ? 2 : 1} />
               <text x={n.x + 60} y={n.y + 25} textAnchor="middle" fill="#fff" fontSize="12">{n.label}</text>
             </g>
           );

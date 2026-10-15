@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Assessment } from "@/components/Interactive";
 import { Hero, Info, Split } from "@/components/ui";
 
-export const metadata: Metadata = { title: "AI Readiness Assessment" };
+export const metadata: Metadata = { alternates: { canonical: "/assessment" }, description: "Answer a few questions and get preliminary guidance on whether AI consulting, an audit, automation, or a knowledge system is the right first step.", title: "AI Readiness Assessment" };
 
 export default function Page() {
   return (

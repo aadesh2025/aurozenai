@@ -3,7 +3,7 @@ import Link from "next/link";
 import { NAV } from "@/lib/site";
 import { Hero, Section } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Sitemap" };
+export const metadata: Metadata = { alternates: { canonical: "/sitemap" }, description: "All pages on the AUROZEN AI website.", title: "Sitemap" };
 
 export default function Page() {
   return (

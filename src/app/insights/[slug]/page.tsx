@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ARTICLES } from "@/lib/articles";
 import { Container, FinalCta, Hero, Related } from "@/components/ui";
 import { Toc } from "@/components/Toc";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE } from "@/lib/site";
 
 type P = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => ARTICLES.map((a) => ({ slug: a.slug }));
@@ -11,7 +13,7 @@ export const generateStaticParams = () => ARTICLES.map((a) => ({ slug: a.slug })
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { slug } = await params;
   const a = ARTICLES.find((x) => x.slug === slug);
-  return a ? { title: a.title, description: a.intro } : {};
+  return a ? { title: a.title, description: a.intro, alternates: { canonical: `/insights/${a.slug}` }, openGraph: { type: "article", title: a.title, description: a.intro, url: `/insights/${a.slug}` } } : {};
 }
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -23,8 +25,10 @@ export default async function Article({ params }: P) {
   const a = ARTICLES[i];
   const next = ARTICLES[(i + 1) % ARTICLES.length];
   const words = a.body.flatMap((b) => b.p).join(" ").split(/\s+/).length;
+  const ld = { "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.intro, articleSection: a.category, author: { "@type": "Organization", name: "AUROZEN AI" }, publisher: { "@type": "Organization", name: "AUROZEN AI", logo: { "@type": "ImageObject", url: `${SITE.url}/logo-mark.png` } }, mainEntityOfPage: `${SITE.url}/insights/${a.slug}` };
   return (
     <>
+      <JsonLd data={ld} />
       <Hero title={a.title} text={a.intro} trail={[["Insights", "/insights"], [a.category]]}>
         <span className="text-sm text-muted">{Math.max(2, Math.round(words / 200))} min read · Published by AUROZEN AI</span>
       </Hero>

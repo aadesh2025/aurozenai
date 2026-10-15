@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Contact and Legal Notices" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/contact" }, description: "How to contact AUROZEN AI for general, project, support, privacy, and legal matters.", title: "Contact and Legal Notices" };
 
 export default function Page() {
   return (

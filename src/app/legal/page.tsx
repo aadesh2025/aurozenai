@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card, Hero, Section } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Legal Centre" };
+export const metadata: Metadata = { alternates: { canonical: "/legal" }, description: "Legal Centre for the AUROZEN AI website: privacy, cookies, terms, AI limitations, data rights, accessibility, and notices.", title: "Legal Centre" };
 
 const DOCS = [
   ["Privacy Policy", "/legal/privacy", "How we collect, use, and protect personal information."],

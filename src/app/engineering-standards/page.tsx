@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FinalCta, Hero, Section } from "@/components/ui";
 import { FaqList } from "@/components/FaqList";
 
-export const metadata: Metadata = { title: "Engineering & Delivery Standards" };
+export const metadata: Metadata = { alternates: { canonical: "/engineering-standards" }, description: "The engineering and delivery practices AUROZEN AI follows: requirements, testing, access control, secrets, deployment, monitoring.", title: "Engineering & Delivery Standards" };
 
 // TODO: confirm each practice reflects how you actually work before launch.
 const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [

@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ_GROUPS } from "@/lib/content";
 import { Hero, Section } from "@/components/ui";
+import { JsonLd } from "@/components/JsonLd";
 
-export const metadata: Metadata = { title: "FAQs" };
+export const metadata: Metadata = { alternates: { canonical: "/resources/faq" }, description: "Answers about AUROZEN AI services: consulting, audits, automation, agents, RAG, voice, integrations, delivery, security, and support.", title: "FAQs" };
 
 export default function Page() {
   return (
     <>
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: FAQ_GROUPS.flatMap((g) => g.items.map((i) => ({ "@type": "Question", name: i.q, acceptedAnswer: { "@type": "Answer", text: i.a } }))) }} />
       <Hero title="Frequently Asked Questions" trail={[["Insights"], ["FAQs"]]} />
       <Section>
         <div className="space-y-8">

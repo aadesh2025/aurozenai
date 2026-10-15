@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { IntegrationDirectory } from "@/components/Interactive";
 import { Hero, Section } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Technology & Integrations" };
+export const metadata: Metadata = { alternates: { canonical: "/technology-integrations" }, description: "Technologies and integrations AUROZEN AI works with, with honest status labels: supported, needs validation, custom, or unsupported.", title: "Technology & Integrations" };
 
 export default function Page() {
   return (

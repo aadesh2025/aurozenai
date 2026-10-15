@@ -56,7 +56,7 @@ export function VoiceDemo() {
         <ol className="mt-5 space-y-2" aria-live="polite">
           {SCRIPT.map((l, k) => (
             <li key={k} className={`rounded-2xl px-4 py-2.5 text-sm transition-all ${k === i ? "bg-ink text-paper" : k < i ? "bg-ink/[0.06] text-ink/70" : "text-ink/25"} ${l.who === "Caller" ? "ml-8" : "mr-8"}`}>
-              <span className="mr-2 font-mono text-[11px] opacity-60">{l.who}</span>{l.text}
+              <span className="mr-2 font-mono text-xs opacity-60">{l.who}</span>{l.text}
             </li>
           ))}
         </ol>

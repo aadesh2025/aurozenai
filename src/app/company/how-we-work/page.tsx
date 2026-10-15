@@ -3,7 +3,7 @@ import { FinalCta, Hero, PhaseStrip, Section, Container } from "@/components/ui"
 import { Toc } from "@/components/Toc";
 import { FaqList } from "@/components/FaqList";
 
-export const metadata: Metadata = { title: "How We Work", description: "The AUROZEN AI client journey from first inquiry to ongoing support." };
+export const metadata: Metadata = { alternates: { canonical: "/company/how-we-work" }, title: "How We Work", description: "The AUROZEN AI client journey from first inquiry to ongoing support." };
 
 const STAGES = [
   ["Initial inquiry", "You describe the problem and the outcome you want.", "A short note or the project form is enough. We read it and reply with questions.", "A shared first understanding."],

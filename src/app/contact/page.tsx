@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = { alternates: { canonical: "/contact" }, description: "Contact AUROZEN AI about an AI consulting, automation, agent, chatbot, or integration project.", title: "Contact" };
 
 export default function Page() {
   return (

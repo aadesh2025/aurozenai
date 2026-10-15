@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Legal } from "@/components/Legal";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Accessibility Statement" };
+export const metadata: Metadata = { alternates: { canonical: "/legal/accessibility" }, description: "AUROZEN AI accessibility statement: our aims, current status, and how to report a barrier.", title: "Accessibility Statement" };
 
 export default function Page() {
   return (

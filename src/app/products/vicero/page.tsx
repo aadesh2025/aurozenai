@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Btn, FinalCta, Hero, Section } from "@/components/ui";
+import { Btn, FinalCta, Hero, Rail, Section } from "@/components/ui";
 import { FaqList } from "@/components/FaqList";
 import { ViceroTour } from "@/components/demos/ViceroTour";
 import { SITE } from "@/lib/site";
@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 const APP = SITE.product.appUrl ?? "https://vicero-ai.vercel.app/";
 const base = APP.replace(/\/$/, "");
 
-export const metadata: Metadata = {
+export const metadata: Metadata = { alternates: { canonical: "/products/vicero" },
   title: "VICERO",
   description: "VICERO answers customers from your own documents, on your website, WhatsApp and Instagram, shows the source of each answer, and hands over to a person when it is not sure.",
 };
@@ -54,11 +54,11 @@ export default function Page() {
       </Hero>
 
       <Section title="Three ideas behind it">
-        <div className="grid gap-4 md:grid-cols-3">
+        <Rail cols="md:grid-cols-3">
           {IDEAS.map(([h, p]) => (
             <div key={h} className="card p-7"><h3 className="text-xl font-medium">{h}</h3><p className="mt-3 text-[16.5px] leading-relaxed text-muted">{p}</p></div>
           ))}
-        </div>
+        </Rail>
       </Section>
 
       <Section dark title="Your support desk in one place" lede="Click through the real product. Switch the screenshot theme to see both.">

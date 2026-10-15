@@ -51,7 +51,7 @@ export function RoleBrowser() {
   return (
     <div>
       <label htmlFor="rs" className="sr-only">Search roles or skills</label>
-      <input id="rs" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by role or skill, e.g. n8n, outreach, design" className="w-full max-w-lg rounded-full border border-line bg-surface px-5 py-3 text-sm outline-none focus:border-accent" />
+      <input id="rs" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search by role or skill, e.g. n8n, outreach, design" className="w-full max-w-lg rounded-full border border-line bg-surface px-5 py-3.5 text-base outline-none focus:border-accent sm:text-sm" />
       <div className="mt-5 space-y-3">
         {row("Type", ["Business", "Technical", "Creative", "Operations"], track, setTrack)}
         {row("Level", ["Beginner-friendly", "Experienced"], level, setLevel)}

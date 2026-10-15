@@ -12,7 +12,7 @@ export const generateStaticParams = () => ROLES.map((r) => ({ slug: r.slug }));
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { slug } = await params;
   const r = getRole(slug);
-  return r ? { title: `${r.title} | Partner With Us`, description: r.summary } : {};
+  return r ? { alternates: { canonical: `/partners/${r.slug}` }, title: `${r.title} | Partner With Us`, description: r.summary } : {};
 }
 
 export default async function RolePage({ params }: P) {
