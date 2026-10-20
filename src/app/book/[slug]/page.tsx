@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BookingFrame } from "@/components/BookingFrame";
 import { SITE } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -12,18 +13,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return b ? { title: b.title, description: b.text, alternates: { canonical: `/book/${b.slug}` } } : {};
 }
 
+const STEPS = ["Pick a time", "Confirm your details", "Get the calendar invite"];
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const b = SITE.bookings.find((x) => x.slug === slug);
   if (!b) notFound();
   const back = b.audience === "partner" ? ["/partners", "Partner With Us"] : ["/book-consultation", "All meeting types"];
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 pb-6 pt-24 md:pt-28">
-      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-2xl md:text-3xl">{b.title} <span className="font-mono text-sm text-muted">{b.mins}</span></h1>
-        <Link href={back[0]} className="text-sm text-accent underline underline-offset-4">← {back[1]}</Link>
+    <section className="mx-auto w-full max-w-5xl px-4 pb-16 pt-28 md:pt-32">
+      <Link href={back[0]} className="text-sm text-muted transition hover:text-ink">← {back[1]}</Link>
+      <div className="mt-4 grid gap-6 md:grid-cols-[1.4fr_1fr] md:items-end">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-[13px] text-muted"><span className="h-1.5 w-1.5 rounded-full bg-accent" />{b.mins} · Online meeting</span>
+          <h1 className="mt-4 text-4xl leading-[1.05] md:text-5xl">{b.title}</h1>
+          <p className="mt-3 max-w-xl text-muted">{b.text}</p>
+        </div>
+        <ol className="flex gap-2 text-[13px] md:flex-col md:items-end">
+          {STEPS.map((s, i) => (
+            <li key={s} className="flex items-center gap-2 text-ink/70"><span className="grid h-5 w-5 place-items-center rounded-full bg-accent/15 font-mono text-[11px] text-accent">{i + 1}</span><span className="hidden sm:inline">{s}</span></li>
+          ))}
+        </ol>
       </div>
-      <iframe src={`https://cal.com/aurozen-ai/${b.slug}?embed=true&layout=month_view`} title={b.title} className="card h-[calc(100dvh-10rem)] min-h-[620px] w-full" />
+      <div className="mt-8"><BookingFrame slug={b.slug} title={b.title} /></div>
+      <p className="mt-5 text-center text-xs text-muted">Free · No obligation · Times shown in your timezone · You can reschedule from the confirmation email</p>
     </section>
   );
 }
