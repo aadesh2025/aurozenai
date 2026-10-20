@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CalEmbed } from "@/components/CalEmbed";
 import { ConsultForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 import { SITE } from "@/lib/site";
@@ -13,11 +14,11 @@ export default function Page() {
         aside={
           <>
             <Info title="What to expect" points={["We discuss your goals and current process.", "We tell you honestly whether AI fits.", "We outline possible next steps."]} />
-            <Info title="Helpful to bring" points={["The process you want to improve.", "The tools and systems involved.", "What a good outcome looks like."]} foot={SITE.calendarUrl ? undefined : "Online scheduling is being connected. Send the form and we will reply with available times."} />
+            <Info title="Helpful to bring" points={["The process you want to improve.", "The tools and systems involved.", "What a good outcome looks like."]} />
           </>
         }
       >
-        {SITE.calendarUrl && <iframe src={SITE.calendarUrl} title="Schedule a consultation" className="card mb-8 h-[700px] w-full" />}
+        <CalEmbed options={SITE.cal.client} title="Schedule a consultation" />
         <ConsultForm />
       </Split>
     </>

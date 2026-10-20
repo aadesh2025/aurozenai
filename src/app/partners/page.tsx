@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Btn, Hero, Section, Pill, Rail } from "@/components/ui";
 import { CompensationDisclosure, RoleBrowser, RoleCard, RoleMatcher, Schedules } from "@/components/partners/PartnerHub";
 import { FaqList } from "@/components/FaqList";
+import { CalEmbed } from "@/components/CalEmbed";
+import { SITE } from "@/lib/site";
 import { ROLES } from "@/lib/partners";
 
 export const metadata: Metadata = { alternates: { canonical: "/partners" },
@@ -81,6 +83,10 @@ export default function Page() {
 
       <Section title="Questions">
         <div className="grid gap-10 md:grid-cols-[1fr_1.8fr]"><p className="max-w-xs text-muted">Still unsure? Apply and ask. We answer honestly.</p><FaqList items={FAQ} /></div>
+      </Section>
+
+      <Section id="book" title="Prefer to talk first?" lede="Book a 30-minute introductory conversation about partnership, sales collaboration, or working together.">
+        <div className="max-w-4xl"><CalEmbed options={[{ label: "Business partnership discussion", mins: "30 min", url: SITE.cal.partner }]} title="Book a partnership conversation" /></div>
       </Section>
 
       <section className="px-2 pb-3 md:px-4">

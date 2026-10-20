@@ -8,7 +8,13 @@ export const SITE = {
   email: "aurozenai@gmail.com",
   // TODO: confirm product name + public URLs for the SaaS
   product: { name: "VICERO", appUrl: "https://vicero-ai.vercel.app/" as string | null },
-  calendarUrl: null as string | null, // TODO: Cal.com / Calendly embed URL
+  cal: {
+    partner: "https://cal.com/aurozen-ai/business-partnership?embed=true&layout=month_view",
+    client: [
+      { label: "Free discovery call", mins: "15 min", url: "https://cal.com/aurozen-ai/discovery-call?embed=true&layout=month_view" },
+      { label: "AI & automation consultation", mins: "45 min", url: "https://cal.com/aurozen-ai/ai-consultation?embed=true&layout=month_view" },
+    ],
+  },
   clientPortalUrl: null as string | null, // TODO
 };
 
