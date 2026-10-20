@@ -20,6 +20,7 @@ export default function Page() {
             </Link>
           ))}
         </div>
+        <p className="mt-6 text-sm text-muted">Prefer to see every option? <a href={SITE.calProfile} target="_blank" rel="noopener noreferrer" className="text-accent underline underline-offset-4">Talk with me →</a></p>
       </section>
     </>
   );

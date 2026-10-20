@@ -6,7 +6,7 @@ import { FooterCols } from "./FooterCols";
 const COLS: { title: string; links: [string, string][] }[] = [
   { title: "Pages", links: [["Home", "/"], ["About", "/company/about"], ["Our Work", "/work"], ["Insights", "/insights"], ["Partner With Us", "/partners"], ["Contact", "/contact"]] },
   { title: "Services", links: [["AI Consulting", "/services/ai-consulting"], ["AI Auditing", "/services/ai-audit"], ["AI Automation", "/services/ai-automation"], ["AI Agents", "/services/ai-agents"], ["AI Chatbots", "/services/ai-chatbots"], ["Voice Agents", "/services/ai-voice-agents"]] },
-  { title: "Company", links: [["Our Approach", "/company/approach"], ["How We Work", "/company/how-we-work"], ["VICERO", "/products/vicero"], ["Client Support", "/support"], ["Book a Consultation", "/book-consultation"]] },
+  { title: "Company", links: [["Our Approach", "/company/approach"], ["How We Work", "/company/how-we-work"], ["VICERO", "/products/vicero"], ["Client Support", "/support"], ["Book a Consultation", "/book-consultation"], ["Talk with me", SITE.calProfile]] },
   { title: "Industries", links: [["Professional Services", "/industries/professional-services"], ["Healthcare & Clinics", "/industries/healthcare"], ["E-commerce & Retail", "/industries/ecommerce"], ["Real Estate", "/industries/real-estate"], ["Small Businesses", "/industries/smbs"]] },
 ];
 

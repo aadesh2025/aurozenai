@@ -8,6 +8,7 @@ export const SITE = {
   email: "aurozenai@gmail.com",
   // TODO: confirm product name + public URLs for the SaaS
   product: { name: "VICERO", appUrl: "https://vicero-ai.vercel.app/" as string | null },
+  calProfile: "https://cal.com/aurozen-ai",
   // Cal.com meeting types. Each gets a full-page embed at /book/[slug].
   bookings: [
     { slug: "discovery-call", title: "Free Discovery Call", mins: "15 min", audience: "client", text: "Discuss your business needs and explore how AUROZEN AI can help with AI, automation, chatbots, or software development." },
