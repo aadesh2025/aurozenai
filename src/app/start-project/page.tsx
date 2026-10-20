@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { StartProjectForm } from "@/components/Forms";
+import { SimpleForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 
-export const metadata: Metadata = { alternates: { canonical: "/start-project" }, description: "Describe your AI or automation project in six short steps and get a tailored response from AUROZEN AI.", title: "Start a Project" };
+export const metadata: Metadata = { alternates: { canonical: "/start-project" }, description: "Tell AUROZEN AI about your AI or automation project and get a tailored response.", title: "Start a Project" };
 
 export default function Page() {
   return (
     <>
-      <Hero title="Start a Project" text="Six short steps. We collect only what we need to evaluate and respond." trail={[["Contact"], ["Start a Project"]]} />
-      <Split aside={<Info title="What we ask, and why" points={["The service and the problem, so we know where to start.", "Your current systems, so we can judge what connects.", "Deployment and security needs, so nothing surprises you later.", "Contact details, so we can answer."]} foot="Nothing is sent until you submit. This is not a proposal or a promise of feasibility." />}><StartProjectForm /></Split>
+      <Hero title="Start a Project" text="Tell us what you want to build. We reply by email." trail={[["Contact"], ["Start a Project"]]} />
+      <Split aside={<Info title="What to include" points={["The problem you want solved.", "The tools and systems involved.", "What a good outcome looks like."]} foot="This is not a proposal or a promise of feasibility." />}><SimpleForm form="start-project" messageLabel="Project details" /></Split>
     </>
   );
 }

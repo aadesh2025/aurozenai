@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SupportForm } from "@/components/Forms";
+import { SimpleForm } from "@/components/Forms";
 import { Hero, Info, Split } from "@/components/ui";
 import { SITE } from "@/lib/site";
 
@@ -18,7 +18,7 @@ export default function Page() {
           </>
         }
       >
-        <SupportForm />
+        <SimpleForm form="support" messageLabel="Describe the issue" done="Request received. We will respond by email." />
       </Split>
     </>
   );

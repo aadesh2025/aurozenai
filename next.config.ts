@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/legal/terms", destination: "/legal/terms-of-use", permanent: true },
       { source: "/accessibility", destination: "/legal/accessibility", permanent: true },
+      { source: "/partners/apply", destination: "/book/business-partnership", permanent: false },
       { source: "/products/botforge", destination: "/products/vicero", permanent: true },
     ];
   },

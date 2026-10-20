@@ -8,13 +8,12 @@ export const SITE = {
   email: "aurozenai@gmail.com",
   // TODO: confirm product name + public URLs for the SaaS
   product: { name: "VICERO", appUrl: "https://vicero-ai.vercel.app/" as string | null },
-  cal: {
-    partner: "https://cal.com/aurozen-ai/business-partnership?embed=true&layout=month_view",
-    client: [
-      { label: "Free discovery call", mins: "15 min", url: "https://cal.com/aurozen-ai/discovery-call?embed=true&layout=month_view" },
-      { label: "AI & automation consultation", mins: "45 min", url: "https://cal.com/aurozen-ai/ai-consultation?embed=true&layout=month_view" },
-    ],
-  },
+  // Cal.com meeting types. Each gets a full-page embed at /book/[slug].
+  bookings: [
+    { slug: "discovery-call", title: "Free Discovery Call", mins: "15 min", audience: "client", text: "Discuss your business needs and explore how AUROZEN AI can help with AI, automation, chatbots, or software development." },
+    { slug: "ai-consultation", title: "AI & Automation Strategy Consultation", mins: "45 min", audience: "client", text: "Expert guidance on applying AI and automation to your business: challenges, opportunities, and practical solutions." },
+    { slug: "business-partnership", title: "Business Partnership Discussion", mins: "30 min", audience: "partner", text: "An introductory conversation about partnerships, sales collaboration, and ways to work with AUROZEN AI." },
+  ] as { slug: string; title: string; mins: string; audience: "client" | "partner"; text: string }[],
   clientPortalUrl: null as string | null, // TODO
 };
 

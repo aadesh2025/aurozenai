@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Mobile-only sticky action bar. Appears after the first screen, hides near the footer and on form pages.
-const HIDE = ["/contact", "/start-project", "/book-consultation", "/partners/apply", "/support"];
+const HIDE = ["/contact", "/start-project", "/book-consultation", "/book", "/support"];
 
 export function MobileBar() {
   const [show, setShow] = useState(false);

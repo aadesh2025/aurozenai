@@ -36,7 +36,7 @@ export default async function RolePage({ params }: P) {
           </dl>
         }
       >
-        <Btn href={`/partners/apply?role=${r.slug}`}>{cta}</Btn>
+        <Btn href={`/book/business-partnership`}>{cta}</Btn>
         <Btn href="/partners" ghost>All roles</Btn>
       </Hero>
 
@@ -77,7 +77,7 @@ export default async function RolePage({ params }: P) {
         <div className="theme-dark noise rounded-[32px] md:rounded-[44px]">
           <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
             <h2 className="max-w-2xl text-4xl leading-none md:text-6xl">{open ? `Interested in ${r.title}?` : "Interested down the line?"}</h2>
-            <div className="mt-8"><Btn href={`/partners/apply?role=${r.slug}`}>{cta}</Btn></div>
+            <div className="mt-8"><Btn href={`/book/business-partnership`}>{cta}</Btn></div>
           </div>
         </div>
       </section>

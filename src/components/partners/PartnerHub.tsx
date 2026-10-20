@@ -60,7 +60,7 @@ export function RoleBrowser() {
       </div>
       <p className="mt-6 text-sm text-muted" aria-live="polite">{list.length} role{list.length === 1 ? "" : "s"}. Status labels show whether we are actively evaluating applicants or building a talent network.</p>
       <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{list.map((r) => <RoleCard key={r.slug} r={r} />)}</div>
-      {!list.length && <p className="mt-6 text-muted">No role matches those filters. <Link href="/partners/apply" className="text-accent underline">Register your interest</Link> and tell us what you can do.</p>}
+      {!list.length && <p className="mt-6 text-muted">No role matches those filters. <Link href="/book/business-partnership" className="text-accent underline">Register your interest</Link> and tell us what you can do.</p>}
     </div>
   );
 }
@@ -133,7 +133,7 @@ export function RoleMatcher() {
         <div className="grid gap-4 md:grid-cols-3">{result.map(({ r, why }) => <div key={r.slug}><RoleCard r={r} /><p className="mt-2 px-1 text-xs text-muted">Why: {[...new Set(why)].join(", ") || "general fit"}</p></div>)}</div>
         {!result.length && <p className="text-muted">No close match from those answers. You can still register your interest.</p>}
         <p className="mt-6 text-xs text-muted">Preliminary and rule-based. Actual opportunities, eligibility, and compensation depend on the specific role. Nothing here is a hiring decision.</p>
-        <div className="mt-5 flex gap-3"><button onClick={() => setDone(false)} className="rounded-full border border-line px-5 py-2.5 text-sm">Change answers</button><Link href="/partners/apply" className="rounded-full bg-ink px-5 py-2.5 text-sm text-paper">Apply to collaborate</Link></div>
+        <div className="mt-5 flex gap-3"><button onClick={() => setDone(false)} className="rounded-full border border-line px-5 py-2.5 text-sm">Change answers</button><Link href="/book/business-partnership" className="rounded-full bg-ink px-5 py-2.5 text-sm text-paper">Apply to collaborate</Link></div>
       </div>
     );
   }

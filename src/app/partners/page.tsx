@@ -3,8 +3,6 @@ import Link from "next/link";
 import { Btn, Hero, Section, Pill, Rail } from "@/components/ui";
 import { CompensationDisclosure, RoleBrowser, RoleCard, RoleMatcher, Schedules } from "@/components/partners/PartnerHub";
 import { FaqList } from "@/components/FaqList";
-import { CalEmbed } from "@/components/CalEmbed";
-import { SITE } from "@/lib/site";
 import { ROLES } from "@/lib/partners";
 
 export const metadata: Metadata = { alternates: { canonical: "/partners" },
@@ -43,7 +41,7 @@ export default function Page() {
         }
       >
         <Btn href="#roles">Explore opportunities</Btn>
-        <Btn href="/partners/apply" ghost>Apply to collaborate</Btn>
+        <Btn href="/book/business-partnership" ghost>Book a partnership call</Btn>
       </Hero>
 
       <Section title="Why work with AUROZEN AI" lede="An early-stage agency building an international client base. We would rather be clear about that than oversell it.">
@@ -85,16 +83,12 @@ export default function Page() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.8fr]"><p className="max-w-xs text-muted">Still unsure? Apply and ask. We answer honestly.</p><FaqList items={FAQ} /></div>
       </Section>
 
-      <Section id="book" title="Prefer to talk first?" lede="Book a 30-minute introductory conversation about partnership, sales collaboration, or working together.">
-        <div className="max-w-4xl"><CalEmbed options={[{ label: "Business partnership discussion", mins: "30 min", url: SITE.cal.partner }]} title="Book a partnership conversation" /></div>
-      </Section>
-
       <section className="px-2 pb-3 md:px-4">
         <div className="theme-dark noise relative overflow-hidden rounded-[32px] md:rounded-[44px]">
           <div className="mx-auto max-w-7xl px-6 py-20 text-center md:py-28">
             <h2 className="mx-auto max-w-2xl text-5xl leading-none md:text-7xl">Ready to contribute?</h2>
             <p className="mx-auto mt-5 max-w-md text-muted">Tell us what you can do. We will tell you honestly whether and how it could work.</p>
-            <div className="mt-9 flex justify-center gap-3"><Btn href="/partners/apply">Apply to collaborate</Btn><Link href="#roles" className="inline-flex items-center rounded-full border border-ink/20 px-6 py-3 text-sm">Browse roles</Link></div>
+            <div className="mt-9 flex justify-center gap-3"><Btn href="/book/business-partnership">Book a partnership call</Btn><Link href="#roles" className="inline-flex items-center rounded-full border border-ink/20 px-6 py-3 text-sm">Browse roles</Link></div>
           </div>
         </div>
       </section>

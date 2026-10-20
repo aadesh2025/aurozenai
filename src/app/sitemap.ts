@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const paths = new Set<string>(["/", "/start-project", "/legal/privacy", "/legal", "/legal/terms-of-use", "/legal/cookies", "/legal/ai-disclaimer", "/legal/data-rights", "/legal/contact", "/legal/data-processing", "/legal/accessibility"]);
   NAV.forEach((g) => g.items?.forEach((i) => paths.add(i.href)));
   ROLES.forEach((r) => paths.add(`/partners/${r.slug}`));
-  paths.add("/partners/apply");
+  SITE.bookings.forEach((b) => paths.add(`/book/${b.slug}`));
   ARTICLES.forEach((a) => paths.add(`/insights/${a.slug}`));
   PROJECTS.forEach((p) => paths.add(`/work/${p.slug}`));
   const now = new Date();
