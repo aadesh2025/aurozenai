@@ -66,8 +66,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <JsonLd data={ORG} />
-        <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
-        <script src="https://files.bpcontent.cloud/2026/11/13/12/20261113124009-8Q8GP0DY.js" defer></script>
       </head>
       <body className="flex min-h-screen flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[60] focus:rounded focus:bg-surface focus:px-3 focus:py-2">
